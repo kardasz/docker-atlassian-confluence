@@ -74,6 +74,9 @@ RUN \
     rm -rf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36.tar.gz ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36 && \
     rm -f ${CONFLUENCE_INSTALL_DIR}confluence/WEB-INF/lib/{activation,mail}-*.jar
 
+# Confluence home dir
+RUN \
+    echo "confluence.home=${CONFLUENCE_HOME}" > ${CONFLUENCE_INSTALL_DIR}/confluence/WEB-INF/classes/confluence-init.properties
 
 USER ${RUN_USER}:${RUN_GROUP}
 
