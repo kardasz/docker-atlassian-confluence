@@ -27,9 +27,10 @@ ENV DOWNLOAD_URL        https://downloads.atlassian.com/software/confluence/down
 # https://confluence.atlassian.com/display/STASH/Stash+home+directory
 ENV CONFLUENCE_HOME          /var/atlassian/application-data/confluence
 
-ENV JAVA_HOME /opt/jdk/$ORACLE_JDK_VERSION
-
-ENV CATALINA_OPTS "-Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStorePassword=changeit"
+ENV JAVA_HOME /opt/jdk/${ORACLE_JDK_VERSION
+ENV JAVA_TRUSTSTORE ${JAVA_HOME}/jre/lib/security/cacerts
+ENV JAVA_TRUSTSTORE_PASSWORD changeit
+ENV CATALINA_OPTS "-Djavax.net.ssl.trustStore=${JAVA_TRUSTSTORE} -Djavax.net.ssl.trustStorePassword=${JAVA_TRUSTSTORE_PASSWORD}"
 
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
@@ -51,7 +52,7 @@ ENV CONFLUENCE_VERSION 5.8.5
 RUN mkdir -p                             ${CONFLUENCE_INSTALL_DIR} \
     && curl -L --silent                  ${DOWNLOAD_URL}${CONFLUENCE_VERSION}.tar.gz | tar -xz --strip=1 -C "$CONFLUENCE_INSTALL_DIR" \
     && mkdir -p                          ${CONFLUENCE_INSTALL_DIR}/conf/Catalina      \
-    && chown -R nobody:nogroup           ${CONFLUENCE_INSTALL_DIR}/                   \
+    && chown -R root:root                ${CONFLUENCE_INSTALL_DIR}/                   \
     && chmod -R 755                      ${CONFLUENCE_INSTALL_DIR}/                   \
     && chmod -R 700                      ${CONFLUENCE_INSTALL_DIR}/conf/Catalina      \
     && chmod -R 700                      ${CONFLUENCE_INSTALL_DIR}/logs               \
