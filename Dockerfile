@@ -51,7 +51,7 @@ ENV CONFLUENCE_VERSION 5.8.5
 RUN mkdir -p                             ${CONFLUENCE_INSTALL_DIR} \
     && curl -L --silent                  ${DOWNLOAD_URL}${CONFLUENCE_VERSION}.tar.gz | tar -xz --strip=1 -C "$CONFLUENCE_INSTALL_DIR" \
     && mkdir -p                          ${CONFLUENCE_INSTALL_DIR}/conf/Catalina      \
-    && chown -R nobody:nobody            ${CONFLUENCE_INSTALL_DIR}/                   \
+    && chown -R nobody:nogroup           ${CONFLUENCE_INSTALL_DIR}/                   \
     && chmod -R 755                      ${CONFLUENCE_INSTALL_DIR}/                   \
     && chmod -R 700                      ${CONFLUENCE_INSTALL_DIR}/conf/Catalina      \
     && chmod -R 700                      ${CONFLUENCE_INSTALL_DIR}/logs               \
