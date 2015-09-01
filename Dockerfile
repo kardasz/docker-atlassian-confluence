@@ -75,7 +75,7 @@ RUN \
     tar xzf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36.tar.gz -C ${CONFLUENCE_INSTALL_DIR} && \
     mv ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36-bin.jar ${CONFLUENCE_INSTALL_DIR}/lib/ && \
     rm -rf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36.tar.gz ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36 && \
-    rm -f ${CONFLUENCE_INSTALL_DIR}confluence/WEB-INF/lib/{activation,mail}-*.jar
+    rm -f ${CONFLUENCE_INSTALL_DIR}/confluence/WEB-INF/lib/{activation,mail}-*.jar
 
 # Confluence home dir
 RUN \
