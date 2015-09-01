@@ -27,7 +27,7 @@ ENV DOWNLOAD_URL        https://downloads.atlassian.com/software/confluence/down
 # https://confluence.atlassian.com/display/STASH/Stash+home+directory
 ENV CONFLUENCE_HOME          /var/atlassian/application-data/confluence
 
-ENV JAVA_HOME /opt/jdk/${ORACLE_JDK_VERSION
+ENV JAVA_HOME /opt/jdk/${ORACLE_JDK_VERSION}
 ENV JAVA_TRUSTSTORE ${JAVA_HOME}/jre/lib/security/cacerts
 ENV JAVA_TRUSTSTORE_PASSWORD changeit
 ENV CATALINA_OPTS "-Djavax.net.ssl.trustStore=${JAVA_TRUSTSTORE} -Djavax.net.ssl.trustStorePassword=${JAVA_TRUSTSTORE_PASSWORD}"
