@@ -71,7 +71,7 @@ RUN \
     rm -rf ${CONFLUENCE_INSTALL_DIR}/jaf-1.1.1 ${CONFLUENCE_INSTALL_DIR}/jaf-1_1_1.zip && \
     wget -O ${CONFLUENCE_INSTALL_DIR}/mail-1.5.4.jar http://java.net/projects/javamail/downloads/download/javax.mail.jar && \
     mv ${CONFLUENCE_INSTALL_DIR}/mail-1.5.4.jar ${CONFLUENCE_INSTALL_DIR}/lib/ && \
-    wget -O ${CONFLUENCE_INSTALL_DIR}/5.8.14.tar.gz http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.37.tar.gz && \
+    wget -O ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37.tar.gz http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.37.tar.gz && \
     tar xzf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37.tar.gz -C ${CONFLUENCE_INSTALL_DIR} && \
     mv ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37/mysql-connector-java-5.1.37-bin.jar ${CONFLUENCE_INSTALL_DIR}/lib/ && \
     rm -rf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37.tar.gz ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37 && \
