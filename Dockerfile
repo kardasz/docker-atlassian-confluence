@@ -13,8 +13,8 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # Download Oracle JDK
-ENV ORACLE_JDK_VERSION jdk-8u51
-ENV ORACLE_JDK_URL     http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.tar.gz
+ENV ORACLE_JDK_VERSION jdk-8u66
+ENV ORACLE_JDK_URL     http://download.oracle.com/otn-pub/java/jdk/8u66-b16/jdk-8u66-linux-x64.tar.gz
 RUN mkdir -p /opt/jdk/$ORACLE_JDK_VERSION && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /opt/jdk/$ORACLE_JDK_VERSION/$ORACLE_JDK_VERSION.tar.gz $ORACLE_JDK_URL && \
     tar -zxf /opt/jdk/$ORACLE_JDK_VERSION/$ORACLE_JDK_VERSION.tar.gz --strip-components=1 -C /opt/jdk/$ORACLE_JDK_VERSION && \
@@ -47,7 +47,7 @@ RUN \
 # Install Atlassian Stash to the following location
 ENV CONFLUENCE_INSTALL_DIR   /opt/atlassian/confluence
 
-ENV CONFLUENCE_VERSION 5.8.5
+ENV CONFLUENCE_VERSION 5.8.14
 
 RUN mkdir -p                             ${CONFLUENCE_INSTALL_DIR} \
     && curl -L --silent                  ${DOWNLOAD_URL}${CONFLUENCE_VERSION}.tar.gz | tar -xz --strip=1 -C "$CONFLUENCE_INSTALL_DIR" \
@@ -71,10 +71,10 @@ RUN \
     rm -rf ${CONFLUENCE_INSTALL_DIR}/jaf-1.1.1 ${CONFLUENCE_INSTALL_DIR}/jaf-1_1_1.zip && \
     wget -O ${CONFLUENCE_INSTALL_DIR}/mail-1.5.4.jar http://java.net/projects/javamail/downloads/download/javax.mail.jar && \
     mv ${CONFLUENCE_INSTALL_DIR}/mail-1.5.4.jar ${CONFLUENCE_INSTALL_DIR}/lib/ && \
-    wget -O ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36.tar.gz http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz && \
-    tar xzf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36.tar.gz -C ${CONFLUENCE_INSTALL_DIR} && \
-    mv ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36-bin.jar ${CONFLUENCE_INSTALL_DIR}/lib/ && \
-    rm -rf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36.tar.gz ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.36 && \
+    wget -O ${CONFLUENCE_INSTALL_DIR}/5.8.14.tar.gz http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.37.tar.gz && \
+    tar xzf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37.tar.gz -C ${CONFLUENCE_INSTALL_DIR} && \
+    mv ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37/mysql-connector-java-5.1.37-bin.jar ${CONFLUENCE_INSTALL_DIR}/lib/ && \
+    rm -rf ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37.tar.gz ${CONFLUENCE_INSTALL_DIR}/mysql-connector-java-5.1.37 && \
     rm -f ${CONFLUENCE_INSTALL_DIR}/confluence/WEB-INF/lib/{activation,mail}-*.jar
 
 # Confluence home dir
