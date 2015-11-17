@@ -14,7 +14,7 @@ RUN apt-get update -qq \
 
 # Download Oracle JDK
 ENV ORACLE_JDK_VERSION jdk-8u66
-ENV ORACLE_JDK_URL     http://download.oracle.com/otn-pub/java/jdk/8u66-b16/jdk-8u66-linux-x64.tar.gz
+ENV ORACLE_JDK_URL     http://download.oracle.com/otn-pub/java/jdk/8u66-b17/jdk-8u66-linux-x64.tar.gz
 RUN mkdir -p /opt/jdk/$ORACLE_JDK_VERSION && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /opt/jdk/$ORACLE_JDK_VERSION/$ORACLE_JDK_VERSION.tar.gz $ORACLE_JDK_URL && \
     tar -zxf /opt/jdk/$ORACLE_JDK_VERSION/$ORACLE_JDK_VERSION.tar.gz --strip-components=1 -C /opt/jdk/$ORACLE_JDK_VERSION && \
